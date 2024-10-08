@@ -35,7 +35,7 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange>
-          <div className="flex justify-center"><NavigationBar /></div>
+            <NavigationBar />
         {children}
         </ThemeProvider>
       </body>
