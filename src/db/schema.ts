@@ -1,10 +1,9 @@
-import { boolean, integer, pgTable, pgTableCreator, varchar } from "drizzle-orm/pg-core";
+import { boolean, uuid, pgTableCreator, varchar } from "drizzle-orm/pg-core";
 
 export const createTable = pgTableCreator((name) => `heartcodeTraining_${name}`);
 
-export const usersTable = pgTable("users", {
-  id: integer().primaryKey().generatedAlwaysAsIdentity(),
-  name: varchar({ length: 255 }).notNull(),
-  email: varchar({ length: 255 }).notNull().unique(),
-  isSmart: boolean().notNull().default(false),
-});
+export const users = createTable("user", {
+    id: uuid("id").defaultRandom().primaryKey(),
+    name: varchar("name", {length: 32}).notNull(),
+    isSmart: boolean().notNull(),
+})

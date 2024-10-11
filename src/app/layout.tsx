@@ -40,7 +40,7 @@ export default function RootLayout({
             disableTransitionOnChange>
               <NavigationBar />
               {children}
-          <Toaster />
+            <Toaster />
           </ThemeProvider>
         </body>
       </html>

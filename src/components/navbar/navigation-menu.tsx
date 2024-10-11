@@ -1,37 +1,38 @@
 import Link from "next/link";
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, navigationMenuTriggerStyle } from "../ui/navigation-menu";
 import { ModeToggle } from "../mode-toggle";
-import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 
 export function NavigationBar() {
     return (
-        <div className="relative flex items-center px-6">
-            <NavigationMenu className="flex flex-row list-none h-16 sticky top-0 min-w-fit py-6 justify-between">
+        <div className="relative flex items-center px-6 sticky top-0 h-16 min-w-fit bg-background/70 backdrop-blur z-20">
+            <NavigationMenu className="flex flex-row list-none h-full py-6 justify-between">
                 <div className="flex flex-row">
                     <NavigationMenuItem>
                         <Link href="/" legacyBehavior passHref>
-                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                            <NavigationMenuLink id="/" className={navigationMenuTriggerStyle()}>
                                 Home
                             </NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <Link href="/quiz" legacyBehavior passHref>
-                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                            <NavigationMenuLink id="quiz" className={navigationMenuTriggerStyle()}>
                                 Quiz
                             </NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <Link href="/about-me" legacyBehavior passHref>
-                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                            <NavigationMenuLink id="about-me" className={navigationMenuTriggerStyle()}>
                                 About Me
-                            </NavigationMenuLink>
+                            </NavigationMenuLink>   
                         </Link>
                     </NavigationMenuItem>
                 </div>
             </NavigationMenu>
-            <div className="relative flex items-center ml-auto px-6">
+            <div className="relative flex items-center ml-auto px-6 space-x-6">
+                <ModeToggle />
                 <SignedIn>
                     <UserButton />
                 </SignedIn>
@@ -40,7 +41,6 @@ export function NavigationBar() {
                         <button className="place-content-center text-sm font-medium px-6">Sign in</button>
                     </SignInButton>
                 </SignedOut>
-                <ModeToggle />
             </div>
         </div>
     )

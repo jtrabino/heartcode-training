@@ -1,3 +1,5 @@
+"use client";
+
 import {
     Accordion,
     AccordionContent,
@@ -11,7 +13,7 @@ import {
             <AccordionItem value="item-1">
                 <AccordionTrigger className="text-lg font-[550]">Will it feel good?</AccordionTrigger>
                 <AccordionContent>
-                    Maybe.
+                    Perhaps.
                 </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2">
